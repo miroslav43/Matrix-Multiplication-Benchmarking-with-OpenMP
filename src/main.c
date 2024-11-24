@@ -84,8 +84,8 @@ int main(int argc, char *argv[])
     const char *func_names[6] = {
         "ijk", "ikj", "jik", "jki", "kij", "kji"};
 
-    int N_values[] = {100, 150, 200, 250, 300};
-    // int N_values[] = {1000, 1500, 2000, 2500, 3000}; // Adjust as needed
+    // int N_values[] = {100, 150, 200, 250, 300};
+    int N_values[] = {1000, 1500, 2000, 2500, 3000}; // Adjust as needed
     int thread_counts[] = {4, 6, 8}; // Testing with 4, 6, and 8 threads
 
     for (int n_idx = 0; n_idx < sizeof(N_values) / sizeof(N_values[0]); n_idx++)
