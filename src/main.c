@@ -4,43 +4,48 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-double **allocate_matrix(int N) {
+double **allocate_matrix(int N)
+{
     double **mat = (double **)malloc(N * sizeof(double *));
     for (int i = 0; i < N; i++)
         mat[i] = (double *)calloc(N, sizeof(double));
     return mat;
 }
 
-void free_matrix(double **mat, int N) {
+void free_matrix(double **mat, int N)
+{
     for (int i = 0; i < N; i++)
         free(mat[i]);
     free(mat);
 }
 
-void generate_matrix(double **mat, int N) {
+void generate_matrix(double **mat, int N)
+{
     for (int i = 0; i < N; i++)
         for (int j = 0; j < N; j++)
             mat[i][j] = rand() % 10 + 1; // Values between 1 and 10
 }
 
-void initialize_matrix(double **mat, int N) {
+void initialize_matrix(double **mat, int N)
+{
     for (int i = 0; i < N; i++)
         memset(mat[i], 0, N * sizeof(double));
 }
 
-void copy_matrix(double **dest, double **src, int N) {
+void copy_matrix(double **dest, double **src, int N)
+{
     for (int i = 0; i < N; i++)
         memcpy(dest[i], src[i], N * sizeof(double));
 }
 
-double compute_matrix_checksum(double **mat, int N) {
+double compute_matrix_checksum(double **mat, int N)
+{
     double checksum = 0.0;
     for (int i = 0; i < N; i++)
         for (int j = 0; j < N; j++)
             checksum += mat[i][j];
     return checksum;
 }
-
 
 int main(int argc, char *argv[])
 {
@@ -81,7 +86,7 @@ int main(int argc, char *argv[])
 
     int N_values[] = {100, 150, 200, 250, 300};
     // int N_values[] = {1000, 1500, 2000, 2500, 3000}; // Adjust as needed
-    int thread_counts[] = {4, 6, 8};                 // Testing with 4, 6, and 8 threads
+    int thread_counts[] = {4, 6, 8}; // Testing with 4, 6, and 8 threads
 
     for (int n_idx = 0; n_idx < sizeof(N_values) / sizeof(N_values[0]); n_idx++)
     {
