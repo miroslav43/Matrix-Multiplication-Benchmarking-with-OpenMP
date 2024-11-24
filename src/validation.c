@@ -3,16 +3,15 @@
 #include <stdio.h>
 #include <math.h>
 
-void validate_results(const char *test_name, double mat[MAX_SIZE][MAX_SIZE], double mat_gt[MAX_SIZE][MAX_SIZE]) {
-    int mismatch = 0;
-    for (int i = 0; i < N && !mismatch; i++)
+int validate_results(const char *test_name, double **mat, double **mat_gt, int N)
+{
+    for (int i = 0; i < N; i++)
         for (int j = 0; j < N; j++)
-            if (fabs(mat[i][j] - mat_gt[i][j]) > EPSILON) {
-                mismatch = 1;
-                break;
+            if (fabs(mat[i][j] - mat_gt[i][j]) > EPSILON)
+            {
+                printf("Mismatch in %s results at position [%d][%d]: %lf != %lf\n", test_name, i, j, mat[i][j], mat_gt[i][j]);
+                return 0;
             }
-    if (mismatch)
-        printf("Mismatch in %s results!\n", test_name);
-    else
-        printf("%s results are correct.\n", test_name);
+    printf("%s results are correct.\n", test_name);
+    return 1;
 }
