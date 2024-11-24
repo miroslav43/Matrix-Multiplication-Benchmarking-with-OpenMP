@@ -1,6 +1,6 @@
 # Makefile
 
-CC = gcc
+CC = gcc-14
 CFLAGS = -Wall -O2 -fopenmp -I$(SRC_DIR)
 LDFLAGS = -fopenmp
 SRC_DIR = src
