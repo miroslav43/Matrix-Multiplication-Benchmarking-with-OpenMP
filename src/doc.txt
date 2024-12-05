@@ -1,0 +1,75 @@
+Checklist for Exercise Completion
+1. Implement Serial Versions of All (i,j,k) Permutations
+Status: ✅ Done for ijk, ikj, jik, jki, kij, and kji.
+Code Provided: You have implemented all serial versions of matrix multiplication with detailed loop-order variations.
+Validation: Results are validated against the ground truth (e.g., using validate_results()).
+2. Implement Parallel Versions of All (i,j,k) Permutations
+Status: ✅ Done for all six permutations.
+Code Provided: All OpenMP-enabled parallel versions have been implemented, with options to adjust the number of threads and chunk size.
+Validation: Parallel results are compared against the ground truth using your validation function.
+3. Implement Serial Blocked Matrix Multiplication
+Status: ✅ Done.
+Key Consideration: Handles cases where matrix size is not evenly divisible by the block size using boundary checks.
+4. Implement Parallel Blocked Matrix Multiplication
+Status: ✅ Done.
+Code Provided: OpenMP-based parallel implementation of blocked matrix multiplication is implemented with adjustable block size and thread counts.
+5. Validation of Results
+Status: ✅ Done.
+Method: The validate_results() function is used to compare results from all implementations against the ground truth computed using the ijk serial algorithm.
+6. Performance Measurements
+Status: ✅ Done in main.c.
+Method:
+You measure execution times for all serial and parallel versions using omp_get_wtime().
+Speedup calculations are included for parallel versions relative to their serial counterparts.
+Presentation: You log results to a CSV file (matrix_mult_results_fopenmp.csv) for easy analysis.
+7. Block Size Experiments
+Status: ✅ Done.
+Approach:
+Tested block sizes (e.g., 16, 32, 64, 128, 256) for both serial and parallel versions.
+Recorded and analyzed the impact of block size on performance.
+Ensured support for non-even divisibility by block size.
+What to Discuss in Your Report
+Matrix Multiplication Variants:
+
+Explain the six loop order permutations (ijk, ikj, jik, jki, kij, kji).
+Discuss why loop order affects performance (e.g., cache locality, memory access patterns).
+Blocked Matrix Multiplication:
+
+Describe the purpose of blocking (to improve cache usage).
+Explain how you handle cases where N is not evenly divisible by the block size.
+Validation Process:
+
+Highlight how validate_results() ensures correctness by comparing with the ijk ground truth.
+Mention that results are considered valid if they are within the EPSILON tolerance.
+Performance Analysis:
+
+Present performance results from your CSV file for:
+Serial versions of all six algorithms.
+Parallel versions of all six algorithms.
+Serial and parallel blocked versions with different block sizes.
+Compare execution times and speedups.
+Identify the best-performing serial and parallel variants.
+Analyze the impact of block size on performance (e.g., finding an optimal block size).
+Parallel Performance:
+
+Discuss the scalability of parallel implementations (e.g., speedup vs. number of threads).
+Explain any observed bottlenecks (e.g., synchronization, memory bandwidth).
+Challenges and Learnings:
+
+Highlight challenges faced during implementation, such as handling non-even divisibility for block size.
+Discuss insights gained about matrix multiplication optimizations and OpenMP.
+Additional Recommendations
+Test on Multiple Matrix Sizes: Ensure you've tested across the full range of sizes (1000 to 3000) specified in the problem description.
+Optimize for Your Hardware: Discuss how the results are influenced by your computer's architecture (e.g., cache size, core count).
+Graphs: Include visualizations (e.g., bar charts or line graphs) for:
+Execution times for different algorithms and matrix sizes.
+Speedup of parallel versions compared to serial.
+Impact of block size on performance.
+Summary
+You’ve implemented all the required serial and parallel versions, including blocked algorithms. You’ve validated results, measured performance, and logged results for analysis. Now, focus on summarizing your findings, analyzing performance trends, and presenting results effectively in your report. With this comprehensive approach, you are well-positioned to achieve the full 30 points.
+
+
+
+
+
+
