@@ -1,1 +1,0 @@
-# Matrix-Multiplication-Benchmarking-with-OpenMP
